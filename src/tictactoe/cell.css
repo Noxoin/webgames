@@ -1,0 +1,8 @@
+.cell {
+	width: 100px;
+	height: 100px;
+	display: inline-block;
+	margin: auto;
+	line-height: 100px;
+  text-align: center;
+}

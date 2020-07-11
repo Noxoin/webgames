@@ -1,8 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Segment, Container, Menu, Icon } from 'semantic-ui-react';
 import logo from './logo.svg';
 import './App.css';
+
+import TicTacToe from './tictactoe/TicTacToe';
 
 function Index() {
 	return (
@@ -66,12 +68,35 @@ function Footer() {
 	);
 }
 
+function None() {
+	return (
+		<header className="App-header">
+			<img src="https://www.noxoin.com/assets/images/solid-logo.png" height="320" alt="logo" />
+			<p>
+				Unable to find the page you requested.
+			</p>
+			<a
+				className="App-link"
+				href="https://reactjs.org"
+				target="_blank"
+				rel="noopener noreferrer"
+			>
+				Learn React
+			</a>
+		</header>
+	);
+}
+
 const App: React.FC = () => {
   return (
     <div className="App">
 			{Header()}
 			<Router>
-				<Route path="/" component={Index} />
+				<Switch>
+					<Route exact path="/" component={Index} />
+					<Route path="/tictactoe" component={TicTacToe} />
+					<Route path="*" component={None} />
+				</Switch>
 			</Router>
 			{Footer()}
     </div>

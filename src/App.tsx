@@ -34,20 +34,6 @@ function Header() {
 					<Menu.Item>
 						<h1>Random Web Games</h1>
 					</Menu.Item>
-				</Menu>
-			</Container>
-		</Segment>
-	);
-}
-
-function Footer() {
-	return (
-		<Segment vertical inverted>
-			<Container>
-				<Menu inverted secondary>
-					<Menu.Item>
-						© 2019 Dixon Cheung
-					</Menu.Item>
 					<Menu.Item position="right">
 						<a href="https://ca.linkedin.com/in/dixon-cheung-42472b37">
 							<Icon size="large" name="linkedin square"></Icon>
@@ -64,6 +50,14 @@ function Footer() {
 					</Menu.Item>
 				</Menu>
 			</Container>
+		</Segment>
+	);
+}
+
+function Footer() {
+	return (
+		<Segment vertical center>
+			© 2022 Dixon Cheung
 		</Segment>
 	);
 }

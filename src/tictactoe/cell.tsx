@@ -2,29 +2,30 @@ import React from 'react';
 import './Cell.css';
 
 interface Props {
+	index: number;
 	value: String;
+	onClick: any;
 }
 
 interface State {
+	index: number;
 	value: String;
+	onClick: any;
 }
 
 class Cell extends React.Component<Props, State> {
-	onClickHandler(e: any) {
-		this.setState(prevState => ({value: prevState.value + "."}));
-	}
-
 	constructor(props: Props) {
 		super(props);
 		this.state = {
+			index: props.index,
 			value: props.value,
+			onClick: props.onClick,
 		};
-		this.onClickHandler = this.onClickHandler.bind(this);
 	}
 
 	render() {
 		return (
-			<div className="cell" onClick={this.onClickHandler}>
+			<div className="cell" data-index={this.state.index} onClick={this.state.onClick}>
 				{this.state.value}
 			</div>
 		);

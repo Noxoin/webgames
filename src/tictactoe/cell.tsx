@@ -1,7 +1,8 @@
 import React from 'react';
-import './cell.css';
+import './Cell.css';
 
 interface Props {
+	value: String;
 }
 
 interface State {
@@ -9,17 +10,22 @@ interface State {
 }
 
 class Cell extends React.Component<Props, State> {
+	onClickHandler(e: any) {
+		this.setState(prevState => ({value: prevState.value + "."}));
+	}
+
 	constructor(props: Props) {
 		super(props);
 		this.state = {
-			value: 'HELLO',
+			value: props.value,
 		};
+		this.onClickHandler = this.onClickHandler.bind(this);
 	}
 
 	render() {
 		return (
-			<div className="cell">
-				<p>{this.state.value}</p>
+			<div className="cell" onClick={this.onClickHandler}>
+				{this.state.value}
 			</div>
 		);
 	}
